@@ -24,4 +24,4 @@ umount /mnt/nas
 #Info versenden
 to="mail@example.com"
 servername="NAME or IP"
-mail -s "Backup Skript" -t $to <<< "Der Server hat eben das Backup-Skript ausgeführt."
+mail -s "Backup Skript" -t $to <<< "Der Server ($servername) hat eben das Backup-Skript ausgeführt."

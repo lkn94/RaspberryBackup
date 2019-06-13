@@ -8,15 +8,19 @@
 mount -t cifs -o user=USERNAME,password=PASSWORD,rw,file_mode=0777,dir_mode=0777 //IP/FREIGABE /mnt/nas
 
 #Variablen
-BACKUP_PFAD=”/mnt/nas/Backup”
-BACKUP_ANZAHL=”5”
-BACKUP_NAME=”Sicherung”
+BACKUP_PFAD="/mnt/nas/Backup"
+BACKUP_ANZAHL="5"
+BACKUP_NAME="Sicherung"
 
 #Backup erstellen
-dd if=/dev/mmcblk0 of=${BACKUP_PFAD}/${BACKUP_NAME}-$(date +%Y%m%d).img bs=1MB
+"dd if=/dev/mmcblk0 of=${BACKUP_PFAD}/${BACKUP_NAME}-$(date +%Y%m%d).img bs=1MB"
 
 #Alte Sicherung löschen
+BACKUP_ZAEHLER=$(ls ${BACKUP_PFAD} -1 | wc -l)
+if [ ${BACKUP_ZAEHLER} -gt ${BACKUP_ANZAHL} ]
+then
 pushd ${BACKUP_PFAD}; ls -tr ${BACKUP_PFAD}/${BACKUP_NAME}* | head -n -${BACKUP_ANZAHL} | xargs rm; popd
+fi
 
 #Festplatte auswerfen
 umount /mnt/nas

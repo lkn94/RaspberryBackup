@@ -5,3 +5,7 @@ This script was created by raspberry.tips (https://raspberry.tips/raspberrypi-ei
 Modified by Lukas Knoeller to send mails.
 
 More information available here: https://hobbyblogging.de/raspberry-pi-vollautomatisch-sichern (german)
+
+# Important information
+
+Please keep in mind that removing your sd-cart from the Pi is a much better solution to create an image of it. There are many tools to create an image from an sd-card.

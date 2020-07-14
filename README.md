@@ -1,3 +1,7 @@
+# Do you like Smart Home?
+
+Take a look at https://smarthome-kompendium.com - the best place to get informed!
+
 # RaspberryBackup
 Create a backup of the raspberry pi on a NAS using cronjobs
 
